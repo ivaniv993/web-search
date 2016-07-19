@@ -32,18 +32,9 @@ configurations {
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-//	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-//	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("org.springframework.boot:spring-boot-devtools")
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }
 
-
-eclipse {
-	classpath {
-		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-	}
-}

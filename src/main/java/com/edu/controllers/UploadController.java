@@ -18,6 +18,7 @@ import java.lang.invoke.MethodHandles;
  */
 
 @RestController
+@RequestMapping(value = "/api")
 public class UploadController {
 
     private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
