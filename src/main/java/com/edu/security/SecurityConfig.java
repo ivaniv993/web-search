@@ -44,20 +44,22 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         http
                 .csrf()
                     .disable()
+                .formLogin()
+                    .successHandler(authSuccess).defaultSuccessUrl("/api/hello", true)
+                    .failureHandler(authFailure)
+                .and()
                 .authorizeRequests()
                     .antMatchers("/resources/**", "/signup", "/about").permitAll()
-                    .antMatchers("/api/**").hasRole("USER")
-                    .and()
-                .formLogin()
+                    .antMatchers("/api/**").authenticated()
                     .and()
                 .logout()
                     .permitAll()
                     .logoutUrl("/api/logout")
-                    .logoutSuccessUrl("/api/hello")
+                    .logoutSuccessUrl("/api/out")
 //                    .logoutSuccessHandler(simpleUrlLogoutSuccessHandler)
 //                    .invalidateHttpSession(true)
 //                    .addLogoutHandler(securityContextLogoutHandler)
-                .and()
+                    .and()
         ;
     }
 }

@@ -4,6 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import sun.util.logging.resources.logging;
@@ -26,22 +30,20 @@ public class UploadController {
     @Value("${multipart.location}")
     private String location;
 
-    @RequestMapping(value = "/upload", method= RequestMethod.GET, produces = MediaType.IMAGE_GIF_VALUE)
+    @RequestMapping(value = "/hello", method= RequestMethod.GET, produces = MediaType.IMAGE_GIF_VALUE)
     public String upload(
-//            @RequestPart("file") MultipartFile file,
-            @RequestParam("start") int  start,
-            @RequestParam("end") int end,
-            @RequestParam("speed") int speed,
-            @RequestParam("repeat") boolean repeat
-    ) throws IOException {
+//            @RequestParam("repeat") boolean repeat
+            ) throws IOException {
 
-        File videoFile = new File(location + "/" + System.currentTimeMillis() + ".mp4");
-//        file.transferTo(videoFile);
-//
+        SecurityContext ctx = SecurityContextHolder.getContext();
+        Authentication authentication = ctx.getAuthentication();
 
-        log.info("Saved file to {} ", videoFile.getAbsoluteFile());
+        User custom = authentication == null ? null : (User) authentication.getPrincipal();
 
-        return "hello";
+
+        log.info("Authenticated user:  {} ", custom.getUsername());
+
+        return custom.getUsername();
     }
 
 }
