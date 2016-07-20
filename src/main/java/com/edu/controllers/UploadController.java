@@ -26,7 +26,7 @@ public class UploadController {
     @Value("${multipart.location}")
     private String location;
 
-    @RequestMapping(value = "/upload", method= RequestMethod.POST, produces = MediaType.IMAGE_GIF_VALUE)
+    @RequestMapping(value = "/upload", method= RequestMethod.GET, produces = MediaType.IMAGE_GIF_VALUE)
     public String upload(
 //            @RequestPart("file") MultipartFile file,
             @RequestParam("start") int  start,
