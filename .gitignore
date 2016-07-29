@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /web-search.iml
 ### Gradle template
 .gradle
@@ -30,7 +30,6 @@ gradle-app.setting
 hs_err_pid*
 
 # Created by .ignore support plugin (hsz.mobi)
-=======
 *.impl
 build/classes/main/com/edu/security/AuthFailure.class
 build/classes/main/com/edu/security/AuthSuccess.class
@@ -66,7 +65,6 @@ classes/artifacts/web-search/web-search-0.0.1-SNAPSHOT.war
 src/main/java/iivaniv/
 src/main/resources/static/
 src/main/resources/templates/
-/web-search.iml
 /.gradle/
 /gradlew.bat
 /gradlew
@@ -79,4 +77,5 @@ src/main/resources/templates/
 /.gradle/2.13/taskArtifacts/fileSnapshots.bin
 /.gradle/2.13/taskArtifacts/taskArtifacts.bin
 /.gradle/2.13/taskArtifacts/fileHashes.bin
->>>>>>> 7c0053dc56616e85d8deed20099fa3d2e2451cfa
+/build/
+/src/main/webapp/ng-view/node_modules/

@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+       "**/app/**/*.js": true,
+        "**/*.js.map": true,
+        "**/systemjs.config.js": false
+    }
+}

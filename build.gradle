@@ -11,7 +11,6 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse-wtp'
 apply plugin: 'spring-boot' 
 apply plugin: 'war'
 
@@ -42,3 +41,15 @@ dependencies {
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }
 
+task runWeb(type:Exec){
+	workingDir 'src/main/webapp/ng-view'
+
+    commandLine 'cmd', '/c', 'npm start'
+}
+
+
+task installNodeMoules(type:Exec){
+	workingDir 'src/main/webapp/ng-view'
+
+    commandLine 'cmd', '/c', 'npm install'
+}
