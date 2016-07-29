@@ -11,7 +11,6 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse-wtp'
 apply plugin: 'spring-boot' 
 apply plugin: 'war'
 
@@ -40,5 +39,20 @@ dependencies {
 //	compile("org.projectlombok:lombok:1.16.8")
 
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+}
+
+task runWeb(type: Exec) {
+    workingDir 'src/main/webapp/travelpab'
+
+    //on windows:
+    commandLine 'cmd', '/c', 'npm start'
+
+//    standardOutput = new ByteArrayOutputStream()
+
+    //extension method stopTomcat.output() can be used to obtain the output:
+//    ext.output = {
+//        return standardOutput.toString()
+//    }
+
 }
 

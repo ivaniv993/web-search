@@ -26,9 +26,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal( AuthenticationManagerBuilder auth ) throws Exception {
-<<<<<<< HEAD
 
-=======
         auth
             .inMemoryAuthentication()
                     .withUser("user")
@@ -38,7 +36,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                     .withUser("admin")
                         .password("admin")
                         .roles("USER", "ADMIN");
->>>>>>> 7c0053dc56616e85d8deed20099fa3d2e2451cfa
 
     }
 
@@ -54,7 +51,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                     .antMatchers("/resources/**", "/signup", "/about").permitAll()
-                    .antMatchers("/api/**").authenticated()
+                    .antMatchers("/api**").authenticated()
                     .and()
                 .logout()
                     .permitAll()
