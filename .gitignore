@@ -1,4 +1,3 @@
-/src/main/webapp/view/node_modules
 
 /web-search.iml
 ### Gradle template
@@ -18,7 +17,6 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 ### Java template
 *.class
-/src/main/webapp/travelpab/node_modules
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -79,3 +77,5 @@ src/main/resources/templates/
 /.gradle/2.13/taskArtifacts/fileSnapshots.bin
 /.gradle/2.13/taskArtifacts/taskArtifacts.bin
 /.gradle/2.13/taskArtifacts/fileHashes.bin
+/build/
+/src/main/webapp/ng-view/node_modules/

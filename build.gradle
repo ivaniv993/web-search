@@ -41,18 +41,15 @@ dependencies {
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }
 
-task runWeb(type: Exec) {
-    workingDir 'src/main/webapp/travelpab'
+task runWeb(type:Exec){
+	workingDir 'src/main/webapp/ng-view'
 
-    //on windows:
     commandLine 'cmd', '/c', 'npm start'
-
-//    standardOutput = new ByteArrayOutputStream()
-
-    //extension method stopTomcat.output() can be used to obtain the output:
-//    ext.output = {
-//        return standardOutput.toString()
-//    }
-
 }
 
+
+task installNodeMoules(type:Exec){
+	workingDir 'src/main/webapp/ng-view'
+
+    commandLine 'cmd', '/c', 'npm install'
+}
