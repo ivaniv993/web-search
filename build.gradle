@@ -42,14 +42,15 @@ dependencies {
 }
 
 task runWeb(type:Exec){
-	workingDir 'src/main/webapp/ng-view'
+	workingDir 'src/main/resources/static'
 
     commandLine 'cmd', '/c', 'npm start'
 }
 
 
 task installNodeMoules(type:Exec){
-	workingDir 'src/main/webapp/ng-view'
+	workingDir 'src/main/resources/static'
 
     commandLine 'cmd', '/c', 'npm install'
 }
+

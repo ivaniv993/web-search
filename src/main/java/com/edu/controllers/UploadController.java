@@ -31,9 +31,7 @@ public class UploadController {
     private String location;
 
     @RequestMapping(value = "/hello", method= RequestMethod.GET, produces = MediaType.IMAGE_GIF_VALUE)
-    public String upload(
-//            @RequestParam("repeat") boolean repeat
-            ) throws IOException {
+    public String upload( ) throws IOException {
 
         SecurityContext ctx = SecurityContextHolder.getContext();
         Authentication authentication = ctx.getAuthentication();
