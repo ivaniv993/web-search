@@ -1,7 +1,9 @@
 package com.edu.controllers;
 
+import com.edu.service.ContactService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
@@ -30,6 +32,9 @@ public class UploadController {
     @Value("${multipart.location}")
     private String location;
 
+    @Autowired
+    private ContactService contactService;
+
     @RequestMapping(value = "/hello", method= RequestMethod.GET, produces = MediaType.IMAGE_GIF_VALUE)
     public String upload(
 //            @RequestParam("repeat") boolean repeat
@@ -41,7 +46,11 @@ public class UploadController {
         User custom = authentication == null ? null : (User) authentication.getPrincipal();
 
 
+
+
+
         log.info("Authenticated user:  {} ", custom.getUsername());
+        log.info("Contact :  {} ", contactService.getContactByFirstName("Ivan"));
 
         return custom.getUsername();
     }
