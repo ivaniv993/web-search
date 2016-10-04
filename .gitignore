@@ -63,7 +63,6 @@ build/tmp/test/jar_extract_8858526848661283495_tmp
 build/tmp/test/jar_extract_8882302895523238853_tmp
 classes/artifacts/web-search/web-search-0.0.1-SNAPSHOT.war
 src/main/java/iivaniv/
-src/main/resources/static/
 src/main/resources/templates/
 /.gradle/
 /gradlew.bat
@@ -78,4 +77,4 @@ src/main/resources/templates/
 /.gradle/2.13/taskArtifacts/taskArtifacts.bin
 /.gradle/2.13/taskArtifacts/fileHashes.bin
 /build/
-/src/main/webapp/ng-view/node_modules/
+/src/main/resources/static/node_modules/
