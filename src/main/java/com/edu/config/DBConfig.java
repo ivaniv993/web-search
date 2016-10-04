@@ -14,12 +14,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by xXx on 10/4/2016.
  */
 @Configuration
-@EnableJpaRepositories
+@EnableJpaRepositories("com.edu.service")
 @EnableTransactionManagement
 public class DBConfig {
 
@@ -27,35 +30,48 @@ public class DBConfig {
     public DataSource dataSource() {
 
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        return builder
-                    .addScript("classpath:*schema.sql")
-                    .addScript("classpath:*data.sql")
-                    .setType(EmbeddedDatabaseType.HSQL)
+        DataSource dataSource= builder
+                .addScript("db/schema.sql")
+                .addScript("db/data.sql")
+                .setType(EmbeddedDatabaseType.H2)
                 .build();
+        try {
+            Statement state = dataSource.getConnection().createStatement();
+            state.execute("select * from contact");
+            ResultSet resultSet = state.getResultSet();
+
+            while (resultSet.next()){
+                System.out.println("result "+ resultSet.getString(2));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return dataSource;
+
+
     }
 
-    @Bean
-    public EntityManagerFactory entityManagerFactory() {
+//    @Bean
+//    public EntityManagerFactory entityManagerFactory() {
+//
+//        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//        vendorAdapter.setGenerateDdl(true);
+//
+//        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+//        factory.setJpaVendorAdapter(vendorAdapter);
+////        factory.setPackagesToScan("com.acme.domain");
+//        factory.setDataSource(dataSource());
+////        factory.afterPropertiesSet();
+//
+//        return factory.getObject();
+//    }
 
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(true);
-
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-        factory.setJpaVendorAdapter(vendorAdapter);
-//        factory.setPackagesToScan("com.acme.domain");
-        factory.setDataSource(dataSource());
-        factory.afterPropertiesSet();
-
-        return factory.getObject();
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-
-        JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(entityManagerFactory());
-        return txManager;
-    }
-
+//    @Bean
+//    public PlatformTransactionManager transactionManager() {
+//
+//        JpaTransactionManager txManager = new JpaTransactionManager();
+//        txManager.setEntityManagerFactory(entityManagerFactory());
+//        return txManager;
+//    }
 
 }

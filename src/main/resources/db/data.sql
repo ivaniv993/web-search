@@ -1,1 +1,1 @@
-insert into contact (first_name, last_name, birth_date) values ('Ivan', 'Ivaniv', '93-10-08');
+insert into contact (id, first_name, last_name, birth_date) values (1, 'Ivan', 'Ivaniv', '1993-10-08');

@@ -1,9 +1,9 @@
 package com.edu.service;
 
 import com.edu.domain.Contact;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -11,12 +11,14 @@ import java.util.List;
 /**
  * Created by xXx on 10/4/2016.
  */
-public interface ContactService extends CrudRepository<Contact, Long>{
+public interface ContactService extends CrudRepository<Contact, Long> {
 
 //    List< Contact> getAllContacts();
 
-    Contact getContactById(Long id);
+    List<Contact> findAll();
 
-    Contact getContactByFirstName( String firstName );
+    Contact findByFirstName( String firstName );
+
+    Contact save(Contact entity);
 
 }

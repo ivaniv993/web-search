@@ -2,13 +2,15 @@ package com.edu.domain;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by xXx on 10/4/2016.
  */
-@Entity(name="CONTACT")
-public class Contact {
+@Entity
+@Table(name="CONTACT")
+public class Contact implements Serializable{
 
     public Contact() {
     }

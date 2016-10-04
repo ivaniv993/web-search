@@ -48,7 +48,7 @@ public class UploadController {
 
 
         log.info("Authenticated user:  {} ", custom.getUsername());
-        log.info("Contact :  {} ", contactService.getContactByFirstName("Ivan"));
+        log.info("Contact :  {} ", contactService.findAll());
 
         return custom.getUsername();
     }
