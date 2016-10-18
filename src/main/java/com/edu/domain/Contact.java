@@ -17,6 +17,7 @@ public class Contact implements Serializable{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name="first_name")
@@ -28,6 +29,17 @@ public class Contact implements Serializable{
 
     @Column(name="birth_date")
     private Date birthDate;
+
+//    @Column(name="additional_info")
+//    private String info;
+//
+//    public String getInfo() {
+//        return info;
+//    }
+//
+//    public void setInfo(String info) {
+//        this.info = info;
+//    }
 
     public Long getId() {
         return id;

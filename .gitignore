@@ -1,4 +1,4 @@
-/src/main/webapp/travelpab
+
 
 /web-search.iml
 ### Gradle template
@@ -79,3 +79,4 @@ src/main/resources/templates/
 /.gradle/2.13/taskArtifacts/fileHashes.bin
 /build/
 /src/main/resources/static/node_modules/
+/src/main/webapp/WEB-INF/node_modules/

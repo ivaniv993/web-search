@@ -36,24 +36,30 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-devtools")
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile group: 'com.h2database', name: 'h2', version: '1.4.192'
-	compile ('org.hsqldb:hsqldb:2.2.8')
-//	compile("org.springframework.boot:spring-boot-starter-log4j2")
-
-//	compile("org.projectlombok:lombok:1.16.8")
+	compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
 
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }
 
 task runWeb(type:Exec){
-	workingDir 'src/main/resources/static'
-
-    commandLine 'cmd', '/c', 'npm start'
+	workingDir 'src/main/webapp/WEB-INF'
+    commandLine 'cmd', '/c', 'npm run build'
 }
 
 
 task installNodeMoules(type:Exec){
-	workingDir 'src/main/resources/static'
+	workingDir 'src/main/webapp/WEB-INF'
 
     commandLine 'cmd', '/c', 'npm install'
 }
+
+task copyFrontEnd(type: Copy) {
+	from 'src/main/webapp/WEB-INF/dist'
+	into 'build/resources/main/static'
+}
+
+
+copyFrontEnd.dependsOn(runWeb)
+
+war.dependsOn(copyFrontEnd)
 

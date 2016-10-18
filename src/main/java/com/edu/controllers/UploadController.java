@@ -1,5 +1,6 @@
 package com.edu.controllers;
 
+import com.edu.domain.Contact;
 import com.edu.service.ContactService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,12 +12,15 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import sun.util.logging.resources.logging;
 
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
 
 
 /**
@@ -35,6 +39,9 @@ public class UploadController {
     @Autowired
     private ContactService contactService;
 
+    @Autowired
+    private DataSource dataSource;
+
     @RequestMapping(value = "/hello", method= RequestMethod.GET, produces = MediaType.IMAGE_GIF_VALUE)
     public String upload( ) throws IOException {
 
@@ -45,12 +52,33 @@ public class UploadController {
 
 
 
+        try {
+            Statement state = dataSource.getConnection().createStatement();
+            state.execute("select * from contact");
+            ResultSet resultSet = state.getResultSet();
 
+            while (resultSet.next()){
+                System.out.println("result "+ resultSet.getString(2));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         log.info("Authenticated user:  {} ", custom.getUsername());
         log.info("Contact :  {} ", contactService.findAll());
 
         return custom.getUsername();
+    }
+
+    @RequestMapping(value = "/user", method= RequestMethod.GET)
+    public void saveUser( ) throws IOException {
+
+        Contact contact = new Contact();
+        contact.setFirstName("Ivan");
+        contact.setLastName("Ivaniv");
+        contact.setBirthDate(new Date());
+
+        contactService.save(contact);
     }
 
 }
