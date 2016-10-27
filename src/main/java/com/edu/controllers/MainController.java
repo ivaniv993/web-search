@@ -29,7 +29,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/api")
-public class UploadController {
+public class MainController {
 
     private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
@@ -39,30 +39,13 @@ public class UploadController {
     @Autowired
     private ContactService contactService;
 
-    @Autowired
-    private DataSource dataSource;
-
-    @RequestMapping(value = "/hello", method= RequestMethod.GET, produces = MediaType.IMAGE_GIF_VALUE)
+    @RequestMapping(value = "/hello", method= RequestMethod.GET)
     public String upload( ) throws IOException {
 
         SecurityContext ctx = SecurityContextHolder.getContext();
         Authentication authentication = ctx.getAuthentication();
 
         User custom = authentication == null ? null : (User) authentication.getPrincipal();
-
-
-
-        try {
-            Statement state = dataSource.getConnection().createStatement();
-            state.execute("select * from contact");
-            ResultSet resultSet = state.getResultSet();
-
-            while (resultSet.next()){
-                System.out.println("result "+ resultSet.getString(2));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
         log.info("Authenticated user:  {} ", custom.getUsername());
         log.info("Contact :  {} ", contactService.findAll());

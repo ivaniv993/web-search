@@ -80,3 +80,4 @@ src/main/resources/templates/
 /build/
 /src/main/resources/static/node_modules/
 /src/main/webapp/WEB-INF/node_modules/
+/src/main/webapp/WEB-INF/dist/

@@ -26,14 +26,25 @@ webpackJsonp([0],{
 	};
 	var core_1 = __webpack_require__(3);
 	var platform_browser_1 = __webpack_require__(21);
-	var app_component_1 = __webpack_require__(24);
+	var router_1 = __webpack_require__(24);
+	var app_component_1 = __webpack_require__(54);
+	var app_detail_1 = __webpack_require__(55);
 	var AppModule = (function () {
 	    function AppModule() {
 	    }
 	    AppModule = __decorate([
 	        core_1.NgModule({
-	            imports: [platform_browser_1.BrowserModule],
-	            declarations: [app_component_1.AppComponent],
+	            imports: [
+	                platform_browser_1.BrowserModule,
+	                router_1.RouterModule.forRoot([
+	                    { path: 'detail', component: app_detail_1.Detail },
+	                    { path: 'blabla', component: app_component_1.AppComponent }
+	                ])
+	            ],
+	            declarations: [
+	                app_component_1.AppComponent,
+	                app_detail_1.Detail
+	            ],
 	            bootstrap: [app_component_1.AppComponent]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -45,7 +56,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 24:
+/***/ 54:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72,6 +83,37 @@ webpackJsonp([0],{
 	    return AppComponent;
 	}());
 	exports.AppComponent = AppComponent;
+
+
+/***/ },
+
+/***/ 55:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(3);
+	var Detail = (function () {
+	    function Detail() {
+	    }
+	    Detail = __decorate([
+	        core_1.Component({
+	            selector: 'detail',
+	            template: '<h1>Detail</h1>'
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], Detail);
+	    return Detail;
+	}());
+	exports.Detail = Detail;
 
 
 /***/ }

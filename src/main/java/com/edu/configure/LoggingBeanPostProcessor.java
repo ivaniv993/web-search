@@ -1,13 +1,10 @@
 package com.edu.configure;
 
-import com.edu.controllers.UploadController;
+import com.edu.controllers.MainController;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -29,7 +26,7 @@ public class LoggingBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 
-        if ( bean instanceof UploadController) {
+        if ( bean instanceof MainController) {
             Class clazz = bean.getClass();
             System.out.println("After loggin post processor : " + bean + "; bean name : " + beanName);
             try {

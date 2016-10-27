@@ -35,8 +35,13 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("org.springframework.boot:spring-boot-devtools")
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile group: 'com.h2database', name: 'h2', version: '1.4.192'
-	compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
+
+//	third-party libraries
+	compile('io.reactivex:rxjava:1.2.0')
+	compile('com.h2database:h2:1.4.192')
+	compile('postgresql:postgresql:9.1-901-1.jdbc4')
+
+	compile('org.slf4j:slf4j-api:1.7.21')
 
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }

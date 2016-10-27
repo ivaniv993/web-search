@@ -31,9 +31,11 @@ public class Test {
 //
 //        System.out.println("-----------------------");
 //        System.out.println("SUM : "+ numericSum(19, 22));
-
-
-
+//
+//        String s2 = "s";
+//        String s1 = new String("s");
+//        s1.intern();
+//        System.out.println(s1==s2); ;
 //    }
 
     private static int numericSum( int from, int to ){
