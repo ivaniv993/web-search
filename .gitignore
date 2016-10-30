@@ -63,6 +63,7 @@ build/tmp/test/jar_extract_8640485574743138654_tmp
 build/tmp/test/jar_extract_8858526848661283495_tmp
 build/tmp/test/jar_extract_8882302895523238853_tmp
 node_modules/
+dist/
 classes/artifacts/web-search/web-search-0.0.1-SNAPSHOT.war
 src/main/java/iivaniv/
 src/main/resources/templates/
@@ -81,3 +82,4 @@ src/main/resources/templates/
 /build/
 /src/main/resources/static/node_modules/
 /src/main/webapp/WEB-INF/node_modules/
+/src/main/webapp/WEB-INF/dist/

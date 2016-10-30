@@ -10,11 +10,12 @@ import {UserService} from './services/user.service';
 import {TitleComponent} from './components/title.component';
 
 
+import {Detail}  from './app.detail';
+
 @NgModule({
     imports:        [
         BrowserModule,
         RouterModule.forRoot([
-       
         {
             path: 'dashboard',
             component: DashboardComponent
@@ -41,8 +42,6 @@ import {TitleComponent} from './components/title.component';
                         HighlightDirective,
                         TitleComponent
                     ],
-    
     bootstrap:      [AppComponent]
 })
-
 export class AppModule {}
