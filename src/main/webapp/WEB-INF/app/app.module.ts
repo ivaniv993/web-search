@@ -10,7 +10,7 @@ import {HighlightDirective} from './directive/highlight.directive'
 import {UserService} from './services/user.service';
 import {TitleComponent} from './components/title.component';
 import {Detail}  from './components/detail.component';
-
+import {HistoricalComponent} from './components/historical.component'
 const routes: Routes = [
     {
         path: '',
@@ -46,6 +46,7 @@ const routes: Routes = [
                         AppComponent, 
                         ViewComponent, 
                         DashboardComponent, 
+                        HistoricalComponent,
                         HighlightDirective,
                         TitleComponent
                     ],

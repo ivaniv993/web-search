@@ -11,14 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Angular 2 app';
-        this.subtitle = 'Hello';
+        this.histName = 'Historical';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            styles: ["\n    .container{\n        display: flex;\n    }\n    .column{\n        background: #eee;\n        border: 5px solid #ccc;\n        display: flex;\n        flex: 3;\n        flex-direction: column;\n        padding: 10px;\n    }\n    .main-column{\n        flex: 7;\n    }\n    .article {\n      background: mediumseagreen;\n      border: 5px solid seagreen;\n      color: white;\n      flex: 1;\n      margin: 10px;\n      padding: 20px;\n    }\n    \n    "],
-            template: "\n  <app-title [subtitle]=\"subtitle\"></app-title>\n  <div class=\"container\">\n    <div class=\"column main-column\">\n      <a routerLink=\"/view\">View</a>\n    </div>\n    <div class=\"column\">\n      <a routerLink=\"/dashboard\">Dashboard</a>\n    </div>\n  </div>\n  <router-outlet></router-outlet>"
+            template: "\n  <div class=\"main container\">\n      <div class=\"column main-column\">\n        <historical></historical>\n        <historical></historical>\n      </div>\n      <div class=\"column\">\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        \n      </div>\n  </div>\n  <router-outlet></router-outlet>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

@@ -18,6 +18,7 @@ var dashboard_component_1 = require('./components/dashboard.component');
 var highlight_directive_1 = require('./directive/highlight.directive');
 var user_service_1 = require('./services/user.service');
 var title_component_1 = require('./components/title.component');
+var historical_component_1 = require('./components/historical.component');
 var routes = [
     {
         path: '',
@@ -53,6 +54,7 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 view_component_1.ViewComponent,
                 dashboard_component_1.DashboardComponent,
+                historical_component_1.HistoricalComponent,
                 highlight_directive_1.HighlightDirective,
                 title_component_1.TitleComponent
             ],
