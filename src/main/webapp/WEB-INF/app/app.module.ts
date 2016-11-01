@@ -1,36 +1,43 @@
 import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule}   from '@angular/router';
+import {RouterModule, Routes }   from '@angular/router';
+import {FormsModule }    from '@angular/forms';
 
 import {AppComponent}  from './app.component';
-import {ViewComponent} from './view.component';
-import {DashboardComponent} from './dashboard.component'
+import {ViewComponent} from './components/view.component';
+import {DashboardComponent} from './components/dashboard.component'
 import {HighlightDirective} from './directive/highlight.directive'
 import {UserService} from './services/user.service';
 import {TitleComponent} from './components/title.component';
+import {Detail}  from './components/detail.component';
 
-
-import {Detail}  from './app.detail';
+const routes: Routes = [
+    {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+    },
+    {
+        path: 'dashboard',
+        component: DashboardComponent
+    },
+    {
+        path: 'view',
+        component: ViewComponent
+    }
+];
 
 @NgModule({
     imports:        [
-        BrowserModule,
-        RouterModule.forRoot([
-        {
-            path: 'dashboard',
-            component: DashboardComponent
-        },
-        {
-            path: '',
-            redirectTo: '/dashboard',
-            pathMatch: 'full'
-        },
-        {
-            path: 'view',
-            component: ViewComponent
-        }
-        ])
-    ],
+                        BrowserModule,
+                        FormsModule,
+                        RouterModule.forRoot(routes)
+                    ],
+                    
+    exports:        [   
+                        RouterModule 
+                    ],
+    
     providers:      [
                         UserService
                     ],
@@ -42,6 +49,9 @@ import {Detail}  from './app.detail';
                         HighlightDirective,
                         TitleComponent
                     ],
-    bootstrap:      [AppComponent]
+                    
+    bootstrap:      [   
+                        AppComponent
+                    ]
 })
 export class AppModule {}
