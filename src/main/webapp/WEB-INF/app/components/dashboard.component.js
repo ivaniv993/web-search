@@ -12,11 +12,16 @@ var core_1 = require('@angular/core');
 var DashboardComponent = (function () {
     function DashboardComponent() {
         this.title = 'Dashboard component';
+        this.histName = 'Historical';
+        this.job1 = 'Job description 1';
+        this.job2 = 'Job description 2';
+        this.job3 = 'Job description 3';
+        this.job4 = 'Job description 4';
     }
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'dashboard',
-            template: "\n    <h1>{{title}}</h1>\n  "
+            template: "\n    <div class=\"main container \">\n      <div class=\"main-column job-container\">\n          <job-item [name]=\"job1\"></job-item>\n          <job-item [name]=\"job2\"></job-item>\n          <job-item [name]=\"job3\"></job-item>\n          <job-item [name]=\"job4\"></job-item>\n        \n      </div>\n      <div class=\"column historyscroll\">\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        \n        \n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], DashboardComponent);

@@ -4,30 +4,18 @@ import { RouterOutlet } from '@angular/router'
 @Component({
   selector: 'my-app',
   template: `
-  <div class="main container">
-      <div class="column main-column">
-        <historical></historical>
-        <historical></historical>
-      </div>
-      <div class="column">
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        
-      </div>
-  </div>
+  <nav class="main-nav" >
+    <li class="nav-li">
+      <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+    </li>
+    <li class="nav-li">
+      <a routerLink="/view" class="nav-link">View</a>
+    </li>
+  </nav>
+  <header>
+    <h1>okjidfsdfsdf</h1>
+  </header>
   <router-outlet></router-outlet>`
 })
 export class AppComponent{ 
-  histName = 'Historical'
 }

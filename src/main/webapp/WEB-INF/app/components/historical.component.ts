@@ -10,7 +10,7 @@ export class HistoricalComponent{
     
     @Input() name = '';
     @Input() author = '';
-    @Input() date: Date;
+    @Input() date: Date = new Date();
     @Input() status: boolean = false; 
     
     

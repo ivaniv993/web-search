@@ -9,37 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HistoricalComponent = (function () {
-    function HistoricalComponent() {
-        this.name = '';
-        this.author = '';
-        this.date = new Date();
-        this.status = false;
+var JobItemComponent = (function () {
+    function JobItemComponent() {
+        this.name = "DEfault name";
+        this.status = 'Default status';
     }
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], HistoricalComponent.prototype, "name", void 0);
+    ], JobItemComponent.prototype, "name", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], HistoricalComponent.prototype, "author", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Date)
-    ], HistoricalComponent.prototype, "date", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], HistoricalComponent.prototype, "status", void 0);
-    HistoricalComponent = __decorate([
+    ], JobItemComponent.prototype, "status", void 0);
+    JobItemComponent = __decorate([
         core_1.Component({
-            selector: 'historical',
-            templateUrl: './app/components/historical.html',
+            selector: 'job-item',
+            templateUrl: './app/components/job-item.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], HistoricalComponent);
-    return HistoricalComponent;
+    ], JobItemComponent);
+    return JobItemComponent;
 }());
-exports.HistoricalComponent = HistoricalComponent;
-//# sourceMappingURL=historical.component.js.map
+exports.JobItemComponent = JobItemComponent;
+//# sourceMappingURL=job-item.component.js.map

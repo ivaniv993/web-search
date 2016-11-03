@@ -1,0 +1,29 @@
+.job-container{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+}
+
+.job-item{
+    flex: 1;
+    height: 30%;
+    background-color: cadetblue ; 
+    display: flex;
+    margin: 10px 0px;
+    flex-direction: column;
+}
+
+.job-item:hover{
+    background-color: white; 
+}
+
+
+.item-title{
+   color: #333;
+   font-size: 1.4em;
+   font-weight: bold;
+   font-weight: 700;
+   line-height: 1.2;
+}

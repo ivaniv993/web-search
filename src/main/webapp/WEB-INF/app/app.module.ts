@@ -11,6 +11,8 @@ import {UserService} from './services/user.service';
 import {TitleComponent} from './components/title.component';
 import {Detail}  from './components/detail.component';
 import {HistoricalComponent} from './components/historical.component'
+import {JobItemComponent} from './components/job-item.component';
+
 const routes: Routes = [
     {
         path: '',
@@ -45,6 +47,7 @@ const routes: Routes = [
     declarations:   [
                         AppComponent, 
                         ViewComponent, 
+                        JobItemComponent,
                         DashboardComponent, 
                         HistoricalComponent,
                         HighlightDirective,

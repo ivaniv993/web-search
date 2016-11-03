@@ -11,12 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.histName = 'Historical';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <div class=\"main container\">\n      <div class=\"column main-column\">\n        <historical></historical>\n        <historical></historical>\n      </div>\n      <div class=\"column\">\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        \n      </div>\n  </div>\n  <router-outlet></router-outlet>"
+            template: "\n  <nav class=\"main-nav\" >\n    <li class=\"nav-li\">\n      <a routerLink=\"/dashboard\" class=\"nav-link\">Dashboard</a>\n    </li>\n    <li class=\"nav-li\">\n      <a routerLink=\"/view\" class=\"nav-link\">View</a>\n    </li>\n  </nav>\n  <header>\n    <h1>okjidfsdfsdf</h1>\n  </header>\n  <router-outlet></router-outlet>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
