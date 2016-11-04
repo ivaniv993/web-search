@@ -32,7 +32,6 @@ div, h2, p, figure {
         
 .main-column {
   flex: 7;
-  overflow-y: auto;
 }
 
 .article {

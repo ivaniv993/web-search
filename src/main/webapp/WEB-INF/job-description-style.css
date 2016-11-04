@@ -8,10 +8,10 @@
 
 .job-item{
     flex: 1;
-    height: 30%;
+    height: 25%;
     background-color: cadetblue ; 
     display: flex;
-    margin: 10px 0px;
+    margin: 5px 0px;
     flex-direction: column;
 }
 

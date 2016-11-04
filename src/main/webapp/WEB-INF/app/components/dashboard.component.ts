@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'dashboard',
   template: `
     <div class="main container ">
-      <div class="main-column job-container">
+      <div class="column main-column">
           <job-item [name]="job1"></job-item>
           <job-item [name]="job2"></job-item>
           <job-item [name]="job3"></job-item>
