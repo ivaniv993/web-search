@@ -17,6 +17,7 @@ import { Component } from '@angular/core';
         <historical [name]="histName"></historical>
         <historical [name]="histName"></historical>
         <historical [name]="histName"></historical>
+        <historical [name]="histName"></historical>
         
       </div>
     </div>

@@ -2,6 +2,7 @@ import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes }   from '@angular/router';
 import {FormsModule }    from '@angular/forms';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import {AppComponent}  from './app.component';
 import {ViewComponent} from './components/view.component';
@@ -12,6 +13,8 @@ import {TitleComponent} from './components/title.component';
 import {Detail}  from './components/detail.component';
 import {HistoricalComponent} from './components/historical.component'
 import {JobItemComponent} from './components/job-item.component';
+
+import { InMemoryDataService }  from './mock/in-memory-data.service';
 
 const routes: Routes = [
     {
@@ -33,7 +36,8 @@ const routes: Routes = [
     imports:        [
                         BrowserModule,
                         FormsModule,
-                        RouterModule.forRoot(routes)
+                        RouterModule.forRoot(routes),
+                        InMemoryWebApiModule.forRoot(InMemoryDataService),
                     ],
                     
     exports:        [   

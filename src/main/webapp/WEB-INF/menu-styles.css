@@ -17,15 +17,17 @@ a {
 }
 
 .nav-li {
-    float: left;
+    float: right;
     display: block;
 }
 
 
 .nav-link {
+    line-height: 56px;
     height: 100%;
     display: block;
-    color: black;
+    color: white;
+    position: relative;
     text-align: center;
     padding: 0 16px;
     text-decoration: none;
@@ -35,5 +37,5 @@ a {
 }
 
 li a:hover {
-    background-color: antiquewhite;
+    background-color: #398bdc;
 }

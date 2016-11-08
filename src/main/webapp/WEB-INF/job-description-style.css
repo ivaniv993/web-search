@@ -9,9 +9,9 @@
 .job-item{
     flex: 1;
     height: 25%;
+    margin: 10px 5px;
     background-color: cadetblue ; 
     display: flex;
-    margin: 5px 0px;
     flex-direction: column;
 }
 

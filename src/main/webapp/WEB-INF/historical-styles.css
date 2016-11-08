@@ -1,5 +1,5 @@
 html {
-  background: mediumseagreen;
+  background: darkcyan;
   font-family: sans-serif;
   font-size: 14px;
 }
@@ -37,13 +37,15 @@ div, h2, p, figure {
 .article {
   opacity: 0.7;
   transition:opacity 0.5s linear;
-  border-radius: 10px;
   background: white;
+  border: #1976D2;
+  border-style: groove;
+  border-width: 2px;
   color: #666;
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin: 10px;
+  margin: 10px 5px;
 }
 
 .article:hover{
@@ -51,7 +53,6 @@ div, h2, p, figure {
 }
 
 .article-body {
-  border-radius: 15px;
   background: white;
   padding: 20px;
   padding-right: 10px;

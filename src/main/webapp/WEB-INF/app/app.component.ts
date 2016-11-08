@@ -6,10 +6,10 @@ import { RouterOutlet } from '@angular/router'
   template: `
   <nav class="main-nav" >
     <li class="nav-li">
-      <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+      <a routerLink="/view" class="nav-link">View</a>
     </li>
     <li class="nav-li">
-      <a routerLink="/view" class="nav-link">View</a>
+      <a routerLink="/dashboard" class="nav-link">Dashboard</a>
     </li>
   </nav>
   <header>

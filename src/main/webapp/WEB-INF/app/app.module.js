@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var forms_1 = require('@angular/forms');
+var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
 var app_component_1 = require('./app.component');
 var view_component_1 = require('./components/view.component');
 var dashboard_component_1 = require('./components/dashboard.component');
@@ -20,6 +21,7 @@ var user_service_1 = require('./services/user.service');
 var title_component_1 = require('./components/title.component');
 var historical_component_1 = require('./components/historical.component');
 var job_item_component_1 = require('./components/job-item.component');
+var in_memory_data_service_1 = require('./mock/in-memory-data.service');
 var routes = [
     {
         path: '',
@@ -43,7 +45,8 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                router_1.RouterModule.forRoot(routes)
+                router_1.RouterModule.forRoot(routes),
+                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
             ],
             exports: [
                 router_1.RouterModule
