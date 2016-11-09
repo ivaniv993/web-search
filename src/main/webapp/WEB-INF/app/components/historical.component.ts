@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-
+import {Article} from '../dto/article';
 
 @Component({
     selector: 'historical',
@@ -7,11 +7,8 @@ import {Component, Input} from '@angular/core';
 })
 export class HistoricalComponent{
     
-    
-    @Input() name = '';
-    @Input() author = '';
+    @Input() article : Article;
     @Input() date: Date = new Date();
-    @Input() status: boolean = false; 
     
     
 }

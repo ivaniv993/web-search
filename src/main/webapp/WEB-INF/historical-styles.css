@@ -1,5 +1,5 @@
 html {
-  background: darkcyan;
+  background: white;
   font-family: sans-serif;
   font-size: 14px;
 }
@@ -35,7 +35,7 @@ div, h2, p, figure {
 }
 
 .article {
-  opacity: 0.7;
+  opacity: 0.8;
   transition:opacity 0.5s linear;
   background: white;
   border: #1976D2;

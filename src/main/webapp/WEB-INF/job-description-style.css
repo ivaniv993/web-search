@@ -11,12 +11,17 @@
     height: 25%;
     margin: 10px 5px;
     background-color: cadetblue ; 
+    border: #1976D2;
+    border-style: double;
+    border-width: 2px;
+    
+    
     display: flex;
     flex-direction: column;
 }
 
 .job-item:hover{
-    background-color: white; 
+    background-color: aquamarine; 
 }
 
 

@@ -15,7 +15,7 @@ import {Article} from '../dto/article';
       </div>
       <div class="column historyscroll" >
         <div *ngFor="let article of articles">
-          <historical [name]="article.name"></historical>
+          <historical [article]="article"></historical>
         </div>
       </div>
     </div>

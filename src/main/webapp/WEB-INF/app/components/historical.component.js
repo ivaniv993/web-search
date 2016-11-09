@@ -9,29 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var article_1 = require('../dto/article');
 var HistoricalComponent = (function () {
     function HistoricalComponent() {
-        this.name = '';
-        this.author = '';
         this.date = new Date();
-        this.status = false;
     }
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
-    ], HistoricalComponent.prototype, "name", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], HistoricalComponent.prototype, "author", void 0);
+        __metadata('design:type', article_1.Article)
+    ], HistoricalComponent.prototype, "article", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Date)
     ], HistoricalComponent.prototype, "date", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], HistoricalComponent.prototype, "status", void 0);
     HistoricalComponent = __decorate([
         core_1.Component({
             selector: 'historical',
