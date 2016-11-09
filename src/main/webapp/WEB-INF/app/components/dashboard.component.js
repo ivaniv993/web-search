@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var article_service_1 = require('../services/article.service');
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(articleService) {
+        this.articleService = articleService;
         this.title = 'Dashboard component';
         this.histName = 'Historical';
         this.job1 = 'Job description 1';
@@ -18,12 +20,16 @@ var DashboardComponent = (function () {
         this.job3 = 'Job description 3';
         this.job4 = 'Job description 4';
     }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.articleService.getMockArticle().then(function (articles) { return _this.articles = articles; });
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'dashboard',
-            template: "\n    <div class=\"main container \">\n      <div class=\"column main-column\">\n          <job-item [name]=\"job1\"></job-item>\n          <job-item [name]=\"job2\"></job-item>\n          <job-item [name]=\"job3\"></job-item>\n          <job-item [name]=\"job4\"></job-item>\n        \n      </div>\n      <div class=\"column historyscroll\">\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        <historical [name]=\"histName\"></historical>\n        \n      </div>\n    </div>\n  "
+            template: "\n    <div class=\"main container \">\n      <div class=\"column main-column\">\n          <job-item [name]=\"job1\"></job-item>\n          <job-item [name]=\"job2\"></job-item>\n          <job-item [name]=\"job3\"></job-item>\n          <job-item [name]=\"job4\"></job-item>\n        \n      </div>\n      <div class=\"column historyscroll\" >\n        <div *ngFor=\"let article of articles\">\n          <historical [name]=\"article.name\"></historical>\n        </div>\n      </div>\n    </div>\n  "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [article_service_1.ArticleService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

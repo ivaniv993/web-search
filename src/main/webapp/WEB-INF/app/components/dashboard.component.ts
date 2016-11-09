@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {ArticleService} from '../services/article.service';
+import {Article} from '../dto/article';
 
 @Component({
   selector: 'dashboard',
@@ -11,19 +13,15 @@ import { Component } from '@angular/core';
           <job-item [name]="job4"></job-item>
         
       </div>
-      <div class="column historyscroll">
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        <historical [name]="histName"></historical>
-        
+      <div class="column historyscroll" >
+        <div *ngFor="let article of articles">
+          <historical [name]="article.name"></historical>
+        </div>
       </div>
     </div>
   `
 })
-export class DashboardComponent{
+export class DashboardComponent implements OnInit{
     title = 'Dashboard component';
     histName = 'Historical';
     
@@ -32,4 +30,13 @@ export class DashboardComponent{
     job2 = 'Job description 2'
     job3 = 'Job description 3'
     job4 = 'Job description 4'
+    
+    private articles : Article[];  
+    
+    
+    constructor( private articleService : ArticleService ){}
+    
+    ngOnInit() : void {
+      this.articleService.getMockArticle().then( articles => this.articles = articles);
+    }
  }

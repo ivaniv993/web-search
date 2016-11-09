@@ -12,16 +12,18 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
 var app_component_1 = require('./app.component');
 var view_component_1 = require('./components/view.component');
 var dashboard_component_1 = require('./components/dashboard.component');
-var highlight_directive_1 = require('./directive/highlight.directive');
-var user_service_1 = require('./services/user.service');
 var title_component_1 = require('./components/title.component');
 var historical_component_1 = require('./components/historical.component');
 var job_item_component_1 = require('./components/job-item.component');
-var in_memory_data_service_1 = require('./mock/in-memory-data.service');
+var highlight_directive_1 = require('./directive/highlight.directive');
+var user_service_1 = require('./services/user.service');
+var article_service_1 = require('./services/article.service');
+var in_memory_data_service_1 = require('./in-memory-data.service');
 var routes = [
     {
         path: '',
@@ -45,6 +47,7 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                http_1.HttpModule,
                 router_1.RouterModule.forRoot(routes),
                 angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
             ],
@@ -52,6 +55,7 @@ var AppModule = (function () {
                 router_1.RouterModule
             ],
             providers: [
+                article_service_1.ArticleService,
                 user_service_1.UserService
             ],
             declarations: [
