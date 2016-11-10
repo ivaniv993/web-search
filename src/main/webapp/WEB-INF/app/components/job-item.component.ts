@@ -6,6 +6,13 @@ import {Component, Input} from '@angular/core';
 })
 export class JobItemComponent{
     
-    @Input() name = "DEfault name"
-    @Input() status = 'Default status'
+    @Input() name = "DEfault name";
+    @Input() status = 'Default status';
+    
+   
+  
+  doEnter(event) {
+    console.log('bakaalalla');
+    event.preventDefault();
+  }
 }

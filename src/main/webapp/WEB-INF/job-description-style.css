@@ -10,9 +10,8 @@
     flex: 1;
     height: 25%;
     margin: 10px 5px;
-    background-color: cadetblue ; 
     border: #1976D2;
-    border-style: double;
+    border-style: groove;
     border-width: 2px;
     
     

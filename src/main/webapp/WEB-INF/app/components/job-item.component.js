@@ -14,6 +14,10 @@ var JobItemComponent = (function () {
         this.name = "DEfault name";
         this.status = 'Default status';
     }
+    JobItemComponent.prototype.doEnter = function (event) {
+        console.log('bakaalalla');
+        event.preventDefault();
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)

@@ -1,10 +1,19 @@
-<a  href='#'>
+
+    
     <div class="job-item">
         <h2 class="item-title">
             <span>{{name}}</span>
         </h2>
+        
+        <form  (ngSubmit)="doEnter($event)" #jobForm="ngForm">
+            <input type="text" placeholder="Your email">
+            <input type="text" placeholder="Your password">
+            <button type="submit" [disabled]="!jobForm.form.valid">Submit</button>
+        </form>
+        
         <footer >
             <span>Status: {{complete}}</span>
         </footer>
     </div>
-</a>
+    
+    
