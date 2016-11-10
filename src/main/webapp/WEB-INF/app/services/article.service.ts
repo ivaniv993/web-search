@@ -10,6 +10,7 @@ import 'rxjs/add/operator/toPromise';
 export class ArticleService {
     
     private articleUrl = 'app/articles';
+    private contactUrl = 'http://localhost:8181/api/hello'
     
     
     constructor(private http : Http){}
@@ -25,6 +26,13 @@ export class ArticleService {
                 .toPromise()
                 .then(response => response.json().data as Article[])
                 .catch(this.handleError);          
+    }
+    
+    getContact(): Promise< any[] > {
+        return this. http.get(this.contactUrl)
+                .toPromise()
+                .then(response => response.json().data as any[])
+                .catch(this.handleError);    
     }
     
     

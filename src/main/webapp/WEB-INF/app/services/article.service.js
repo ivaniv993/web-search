@@ -16,12 +16,19 @@ var ArticleService = (function () {
     function ArticleService(http) {
         this.http = http;
         this.articleUrl = 'app/articles';
+        this.contactUrl = 'http://localhost:8181/api/hello';
     }
     ArticleService.prototype.getMockArticle = function () {
         return Promise.resolve(mock_article_1.ARTICLE_MOCK);
     };
     ArticleService.prototype.getArticles = function () {
         return this.http.get(this.articleUrl)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    ArticleService.prototype.getContact = function () {
+        return this.http.get(this.contactUrl)
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);

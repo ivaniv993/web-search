@@ -64,7 +64,7 @@ task copyFrontEnd(type: Copy) {
 }
 
 
-copyFrontEnd.dependsOn(runWeb)
+//copyFrontEnd.dependsOn(runWeb)
 
 war.dependsOn(copyFrontEnd)
 

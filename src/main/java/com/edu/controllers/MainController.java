@@ -21,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -40,7 +41,7 @@ public class MainController {
     private ContactService contactService;
 
     @RequestMapping(value = "/hello", method= RequestMethod.GET)
-    public String upload( ) throws IOException {
+    public List<Contact> upload( ) throws IOException {
 
         SecurityContext ctx = SecurityContextHolder.getContext();
         Authentication authentication = ctx.getAuthentication();
@@ -50,7 +51,7 @@ public class MainController {
         log.info("Authenticated user:  {} ", custom.getUsername());
         log.info("Contact :  {} ", contactService.findAll());
 
-        return custom.getUsername();
+        return contactService.findAll();
     }
 
     @RequestMapping(value = "/user", method= RequestMethod.GET)

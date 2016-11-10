@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+
 import {ArticleService} from '../services/article.service';
 import {Article} from '../dto/article';
 
@@ -7,11 +10,9 @@ import {Article} from '../dto/article';
   template: `
     <div class="main container ">
       <div class="main-column">
-          <job-item [name]="job1"></job-item>
-          <job-item [name]="job2"></job-item>
-          <job-item [name]="job3"></job-item>
-          <job-item [name]="job4"></job-item>
-        
+        <div *ngFor="let job of jobs">
+          <job-item [name]="job.firstName"></job-item>
+        </div> 
       </div>
       <div class="main-column column" >
         <div *ngFor="let article of articles">
@@ -23,8 +24,6 @@ import {Article} from '../dto/article';
 })
 export class DashboardComponent implements OnInit{
     title = 'Dashboard component';
-    histName = 'Historical';
-    
     
     job1 = 'Job description 1'
     job2 = 'Job description 2'
@@ -32,11 +31,18 @@ export class DashboardComponent implements OnInit{
     job4 = 'Job description 4'
     
     private articles : Article[];  
+    private objects : any[];
     
     
-    constructor( private articleService : ArticleService ){}
+    
+    
+    constructor( private articleService : ArticleService, private http: Http ){}
     
     ngOnInit() : void {
+      
+      this.articleService.getContact()
+          .then( objects => this.objects = objects);   
+      
       this.articleService.getMockArticle().then( articles => this.articles = articles);
     }
  }
