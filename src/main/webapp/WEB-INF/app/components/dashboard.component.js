@@ -27,7 +27,7 @@ var DashboardComponent = (function () {
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'dashboard',
-            template: "\n    <div class=\"main container \">\n      <div class=\"column main-column\">\n          <job-item [name]=\"job1\"></job-item>\n          <job-item [name]=\"job2\"></job-item>\n          <job-item [name]=\"job3\"></job-item>\n          <job-item [name]=\"job4\"></job-item>\n        \n      </div>\n      <div class=\"column historyscroll\" >\n        <div *ngFor=\"let article of articles\">\n          <historical [article]=\"article\"></historical>\n        </div>\n      </div>\n    </div>\n  "
+            template: "\n    <div class=\"main container \">\n      <div class=\"main-column\">\n          <job-item [name]=\"job1\"></job-item>\n          <job-item [name]=\"job2\"></job-item>\n          <job-item [name]=\"job3\"></job-item>\n          <job-item [name]=\"job4\"></job-item>\n        \n      </div>\n      <div class=\"main-column column\" >\n        <div *ngFor=\"let article of articles\">\n          <historical [article]=\"article\"></historical>\n        </div>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService])
     ], DashboardComponent);

@@ -12,9 +12,6 @@ import { RouterOutlet } from '@angular/router'
       <a routerLink="/dashboard" class="nav-link">Dashboard</a>
     </li>
   </nav>
-  <header>
-    <h1>okjidfsdfsdf</h1>
-  </header>
   <router-outlet></router-outlet>`
 })
 export class AppComponent{ 

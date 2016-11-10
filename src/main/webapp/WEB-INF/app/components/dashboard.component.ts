@@ -6,14 +6,14 @@ import {Article} from '../dto/article';
   selector: 'dashboard',
   template: `
     <div class="main container ">
-      <div class="column main-column">
+      <div class="main-column">
           <job-item [name]="job1"></job-item>
           <job-item [name]="job2"></job-item>
           <job-item [name]="job3"></job-item>
           <job-item [name]="job4"></job-item>
         
       </div>
-      <div class="column historyscroll" >
+      <div class="main-column column" >
         <div *ngFor="let article of articles">
           <historical [article]="article"></historical>
         </div>

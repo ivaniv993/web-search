@@ -39,3 +39,14 @@ a {
 li a:hover {
     background-color: #398bdc;
 }
+
+@media( max-width: 600px){
+  .main-nav{
+    height: 28px;
+    min-height: 28px;
+  }
+  
+  .nav-link{
+      line-height: 28px;
+  }
+}

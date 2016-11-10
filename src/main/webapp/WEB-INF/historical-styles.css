@@ -1,5 +1,5 @@
 html {
-  background: white;
+  background: #e2e9ef;;
   font-family: sans-serif;
   font-size: 14px;
 }
@@ -20,18 +20,25 @@ div, h2, p, figure {
 }
 
 .container {
+  padding-top: 5%;
   display: flex;
 }
-
-.column {
-  flex: 3;
+       
+.main-column {
+  flex: 7;
   height: 90%;
   overflow-y: auto;
 }
+   
+.column {
+  flex: 3;
+  
+}
 
-        
-.main-column {
-  flex: 7;
+@media( max-width: 600px){
+  .column{
+    display: none;
+  }
 }
 
 .article {
@@ -45,11 +52,14 @@ div, h2, p, figure {
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin: 10px 5px;
+  margin: 2% 2%;
+  
+  transition: all 0.2s ease-in-out;
 }
 
 .article:hover{
   opacity: 1;
+  margin: 2% 1%;
 }
 
 .article-body {
