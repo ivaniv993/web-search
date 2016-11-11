@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 
 import {ArticleService} from '../services/article.service';
 import {Article} from '../dto/article';
+import {Job} from '../dto/job';
 
 @Component({
   selector: 'dashboard',
@@ -30,8 +31,9 @@ export class DashboardComponent implements OnInit{
     job3 = 'Job description 3'
     job4 = 'Job description 4'
     
+    private errorMessage : string;
     private articles : Article[];  
-    private objects : any[];
+    private jobs : Job[];
     
     
     
@@ -41,7 +43,11 @@ export class DashboardComponent implements OnInit{
     ngOnInit() : void {
       
       this.articleService.getContact()
-          .then( objects => this.objects = objects);   
+      .subscribe(
+        jobs => this.jobs = jobs,
+        error => this.errorMessage = <any>error
+      )
+          
       
       this.articleService.getMockArticle().then( articles => this.articles = articles);
     }

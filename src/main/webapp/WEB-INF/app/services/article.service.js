@@ -12,11 +12,12 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var mock_article_1 = require('../mock/mock-article');
 require('rxjs/add/operator/toPromise');
+require('rxjs/Rx');
 var ArticleService = (function () {
     function ArticleService(http) {
         this.http = http;
         this.articleUrl = 'app/articles';
-        this.contactUrl = 'http://localhost:8181/api/hello';
+        this.contactUrl = 'http://localhost:8181/hello';
     }
     ArticleService.prototype.getMockArticle = function () {
         return Promise.resolve(mock_article_1.ARTICLE_MOCK);
@@ -29,9 +30,13 @@ var ArticleService = (function () {
     };
     ArticleService.prototype.getContact = function () {
         return this.http.get(this.contactUrl)
-            .toPromise()
-            .then(function (response) { return response.json().data; })
+            .map(this.extractData)
             .catch(this.handleError);
+    };
+    ArticleService.prototype.extractData = function (res) {
+        console.log("extract data");
+        var body = res.json();
+        return body.data || {};
     };
     ArticleService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

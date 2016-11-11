@@ -2,7 +2,7 @@ import {NgModule}               from '@angular/core';
 import {BrowserModule}          from '@angular/platform-browser';
 import {RouterModule, Routes}   from '@angular/router';
 import {FormsModule}            from '@angular/forms';
-import {HttpModule}             from '@angular/http';
+import {HttpModule,JsonpModule} from '@angular/http';
 import {InMemoryWebApiModule}   from 'angular-in-memory-web-api';
 
 import {AppComponent}           from './app.component';
@@ -42,6 +42,7 @@ const routes: Routes = [
                         BrowserModule,
                         FormsModule,
                         HttpModule,
+                        JsonpModule,
                         RouterModule.forRoot(routes),
                         InMemoryWebApiModule.forRoot(InMemoryDataService),
                     ],

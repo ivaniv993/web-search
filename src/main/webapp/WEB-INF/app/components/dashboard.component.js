@@ -25,7 +25,7 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.articleService.getContact()
-            .then(function (objects) { return _this.objects = objects; });
+            .subscribe(function (jobs) { return _this.jobs = jobs; }, function (error) { return _this.errorMessage = error; });
         this.articleService.getMockArticle().then(function (articles) { return _this.articles = articles; });
     };
     DashboardComponent = __decorate([
