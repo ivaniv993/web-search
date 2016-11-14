@@ -3,7 +3,7 @@ import {BrowserModule}          from '@angular/platform-browser';
 import {RouterModule, Routes}   from '@angular/router';
 import {FormsModule}            from '@angular/forms';
 import {HttpModule,JsonpModule} from '@angular/http';
-import {InMemoryWebApiModule}   from 'angular-in-memory-web-api';
+// import {InMemoryWebApiModule}   from 'angular-in-memory-web-api';
 
 import {AppComponent}           from './app.component';
 import {ViewComponent}          from './components/view.component';
@@ -19,7 +19,7 @@ import {HighlightDirective}     from './directive/highlight.directive';
 import {UserService}            from './services/user.service';
 import {ArticleService}         from './services/article.service'
 
-import {InMemoryDataService}    from './in-memory-data.service';
+// import {InMemoryDataService}    from './in-memory-data.service';
 
 const routes: Routes = [
     {
@@ -43,8 +43,7 @@ const routes: Routes = [
                         FormsModule,
                         HttpModule,
                         JsonpModule,
-                        RouterModule.forRoot(routes),
-                        InMemoryWebApiModule.forRoot(InMemoryDataService),
+                        RouterModule.forRoot(routes)
                     ],
                     
     exports:        [   

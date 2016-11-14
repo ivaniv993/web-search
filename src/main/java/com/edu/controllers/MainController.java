@@ -27,8 +27,9 @@ import java.util.List;
 /**
  * Created by iivaniv on 05.07.2016.
  */
-@CrossOrigin(origins = "*", maxAge = 3600)
+
 @RestController
+@RequestMapping(value = "/app")
 public class MainController {
 
     private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -38,7 +39,6 @@ public class MainController {
 
     @Autowired
     private ContactService contactService;
-
 
     @RequestMapping(value = "/hello", method= RequestMethod.GET)
     public List<Contact> upload( ) throws IOException {
@@ -51,6 +51,7 @@ public class MainController {
 
 //        log.info("Authenticated user:  {} ", custom.getUsername());
 //        log.info("Contact :  {} ", contactService.findAll());
+        Contact contact = contactService.findAll().get(0);
 
         return contactService.findAll();
     }

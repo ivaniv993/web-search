@@ -7,15 +7,19 @@ import { Article } from '../dto/article';
 import { Job } from '../dto/job';
 import { ARTICLE_MOCK } from '../mock/mock-article';
 
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/Rx';
+// import 'rxjs/add/operator/toPromise';
+// import 'rxjs/Rx';
+import '../rxjs-operators'
 
 @Injectable()
 export class ArticleService {
     
     private articleUrl = 'app/articles';
     
-    private contactUrl = 'http://localhost:8181/hello'
+    private MOCK_CONTACT = 'app/dashboard';
+    
+    private SERVER_CONTACT = 'http://localhost:8181/app/hello';
+    
     
     
     constructor(private http : Http){}
@@ -26,16 +30,16 @@ export class ArticleService {
     }
     
     
-    getArticles(): Promise< Article[] >{
-        return this.http.get(this.articleUrl)
+    getArticles(): Promise< Job[] >{
+        return this.http.get(this.SERVER_CONTACT)
                 .toPromise()
-                .then(response => response.json().data as Article[])
+                .then(response => response.json())
                 .catch(this.handleError);          
     }
     
     getContact(): Observable< Job[] > {
         
-        return this.http.get(this.contactUrl)
+        return this.http.get(this.SERVER_CONTACT)
                 .map(this.extractData)
                 .catch(this.handleError);    
     }
@@ -43,12 +47,21 @@ export class ArticleService {
     private extractData( res: Response ){
         console.log("extract data")
         let body = res.json(); 
-        return body.data || {};   
+        return body || {};   
     }
     
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
+    private handleError(error : Response | any){
+        let errMsg : string;
+        if (error instanceof Response) {
+            const body = error.json() || '';
+            const err = body.error || JSON.stringify(body);
+            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+        } else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        
+        console.error(errMsg);
+        return Observable.throw(errMsg);
     }
     
 }
