@@ -9,10 +9,10 @@ import java.util.Date;
  * Created by xXx on 10/4/2016.
  */
 @Entity
-@Table(name="CONTACT")
-public class Contact implements Serializable{
+@Table(name="USER")
+public class User implements Serializable{
 
-    public Contact() {
+    public User() {
     }
 
     @Id
@@ -30,16 +30,8 @@ public class Contact implements Serializable{
     @Column(name="birth_date")
     private Date birthDate;
 
-//    @Column(name="additional_info")
-//    private String info;
-//
-//    public String getInfo() {
-//        return info;
-//    }
-//
-//    public void setInfo(String info) {
-//        this.info = info;
-//    }
+    @Column(name="email")
+    private String email;
 
     public Long getId() {
         return id;
@@ -67,5 +59,13 @@ public class Contact implements Serializable{
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

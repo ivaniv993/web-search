@@ -1,25 +1,19 @@
 package com.edu.controllers;
 
-import com.edu.domain.Contact;
-import com.edu.service.ContactService;
+import com.edu.domain.User;
+import com.edu.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 //import org.springframework.security.core.Authentication;
 //import org.springframework.security.core.context.SecurityContext;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
-import javax.sql.DataSource;
-import java.io.File;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
 
@@ -38,10 +32,10 @@ public class MainController {
     private String location;
 
     @Autowired
-    private ContactService contactService;
+    private UserService userService;
 
     @RequestMapping(value = "/hello", method= RequestMethod.GET)
-    public List<Contact> upload( ) throws IOException {
+    public List<User> upload( ) throws IOException {
 
         log.info("bla bla");
 //        SecurityContext ctx = SecurityContextHolder.getContext();
@@ -51,20 +45,20 @@ public class MainController {
 
 //        log.info("Authenticated user:  {} ", custom.getUsername());
 //        log.info("Contact :  {} ", contactService.findAll());
-        Contact contact = contactService.findAll().get(0);
+        User contact = userService.findAll().get(0);
 
-        return contactService.findAll();
+        return userService.findAll();
     }
 
     @RequestMapping(value = "/user", method= RequestMethod.GET)
     public void saveUser( ) throws IOException {
 
-        Contact contact = new Contact();
+        User contact = new User();
         contact.setFirstName("Ivan");
         contact.setLastName("Ivaniv");
         contact.setBirthDate(new Date());
 
-        contactService.save(contact);
+        userService.save(contact);
     }
 
 }
