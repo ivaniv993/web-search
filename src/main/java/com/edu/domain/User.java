@@ -1,9 +1,12 @@
 package com.edu.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by xXx on 10/4/2016.
@@ -26,12 +29,23 @@ public class User implements Serializable{
     @Column(name="last_name")
     private String lastName;
 
-
     @Column(name="birth_date")
     private Date birthDate;
 
     @Column(name="email")
     private String email;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Job> jobs;
+
+    public Set<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(Set<Job> jobs) {
+        this.jobs = jobs;
+    }
 
     public Long getId() {
         return id;

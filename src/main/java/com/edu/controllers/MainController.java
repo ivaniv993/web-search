@@ -1,5 +1,6 @@
 package com.edu.controllers;
 
+import com.edu.domain.Job;
 import com.edu.domain.User;
 import com.edu.service.UserService;
 import org.slf4j.Logger;
@@ -40,14 +41,15 @@ public class MainController {
         log.info("bla bla");
 //        SecurityContext ctx = SecurityContextHolder.getContext();
 //        Authentication authentication = ctx.getAuthentication();
-
+//
 //        User custom = authentication == null ? null : (User) authentication.getPrincipal();
-
+//
 //        log.info("Authenticated user:  {} ", custom.getUsername());
 //        log.info("Contact :  {} ", contactService.findAll());
-        User contact = userService.findAll().get(0);
+        List<User> contacts = userService.findAll();
 
-        return userService.findAll();
+//        contacts.get(0).getJobs();
+        return contacts;
     }
 
     @RequestMapping(value = "/user", method= RequestMethod.GET)
